@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <title>Machine Status Panel | iDraw Controller</title>
+        <meta name="description" content="iDraw Controller android application machine status panel information and wiki">
+        <link href="css/bootstrap.united.min.css" rel="stylesheet">
+        <link href="css/site.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="nav-wrap" id="siteNavigation"></div>
+            <div class="container">
+                <div class="site-index">
+                    <div class="body-content">
+                        <h2 class="text-center gutter-lg-bottom">Machine Status Panel</h2>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="gutter-lg-top">
+                                    <img src="images/machine_status_panel.png" class="img-responsive img-rounded" alt="Machine Status Panel Information" />
+                                </div>
+                                <p class="text-muted gutter-sm-top">Figure-1: Machine status panel</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-info">Machine Status Panel</h3>
+                            <h4 class="text-muted">Machine status panel shows the current status of machine like machine position, work position, G-Code parser state, feed rate and buffer state.</h4>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="gutter-lg-top">
+                                        <br />
+                                        <img src="images/machine_status_panel_info.png" class="img-responsive img-rounded" alt="Machine Status Panel Information" />
+                                    </div>
+                                    <p class="text-muted gutter-sm-top">Figure-2: Machine Status Panel Information.</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol>
+                                        <li>
+                                            <span class="text-info">Machine State.</span> <span class="badge">1</span>
+                                            <ul>
+                                                <li class="gutter-sm-top">Valid states types: Idle, Run, Hold, Jog, Alarm, Door, Check, Home, Sleep. If not connected to any device then it will show the state as "Unknown"</li>
+                                                <li>
+                                                    Sub-states may be included via : a colon delimiter and numeric code. 
+                                                    For a valid sub-states and information please visit <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface" target="_blank" title="Grbl Documentation - Interface">grbl documentation</a> <i class="fa fa-external-link"></i>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="gutter-sm-top">
+                                            <span class="text-info">Machine Position.</span> <span class="badge">2</span> <span class="badge">3</span>
+                                            <ul>
+                                                <li class="gutter-sm-top">
+                                                    This section shows the current machine and work position of <span class="text-info">X</span>, <span class="text-info">Y</span> and <span class="text-info">Z</span>. 
+                                                    These axis labels <span class="badge">4</span> <span class="text-danger">X</span>, <span class="text-danger">Y</span> and <span class="text-danger">Z</span>. 
+                                                    will turns to red color if corresponding axis limit switch is triggered. 
+                                                    Work position and machine position of the axis Z will turn to red if any tool length offset (TLO) is active on the Z-Axis.
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="gutter-sm-top">
+                                            <span class="text-info">G-Code Parser State.</span> <span class="badge">5</span>
+                                            <ul>
+                                                <li class="gutter-sm-top">
+                                                    The selected coordinate system G54 or G55 or G56 or G57 or G58 or G59
+                                                </li>
+                                                <li>
+                                                    Unit Mode G20 (inches) or G21 (millimeters)
+                                                </li>
+                                                <li>
+                                                    Distance Mode. G90 absolute distance mode or G91 incremental distance mode
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="gutter-sm-top">
+                                            <span class="text-info">Current Feed Rate</span> <span class="badge">6</span>
+                                        </li>
+
+                                        <li class="gutter-sm-top">
+                                            <span class="text-info">Buffer State. (Planner buffer | Serial RX buffer)</span> <span class="badge">7</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-muted text-warning">
+                                    NOTE: Click and holding or long click on anywhere in the "Machine Status Panel" will display the last toast message again.
+                                </p>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer gutter-lg-top">
+                <div class="container">
+                    <a href="privacy-policy.html" class="pull-right gutter-md-left">Privacy Policy</a>
+                    <span class="pull-right"> | </span>
+                    <a href="https://github.com/ZalophusDokdo/xyzcontroller" target="_blank" class="pull-right gutter-md-right"><i class="fa fa-github gutter-sm-right"></i>Github</a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.bootstrap-autohidingnavbar.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                jQuery('#siteNavigation').load('navigation.html', function(){
+                    jQuery("nav.navbar-fixed-top").autoHidingNavbar({animationDuration: 250, showOnUpscroll: true, showOnBottom: false});
+                    setTimeout(function(){$("li.application-info").addClass('active'); $('li.application-info li:eq(1)').addClass('active');}, 100);
+                });
+            });
+        </script>
+    </body>
+
+</html>
